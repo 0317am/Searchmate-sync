@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-29",
+  "topics": ["topic1", "topic7", "topic12"],
+  "profile": "pc_fast",
+  "wordsPerTopic": 2,
+  "autoStart": true
+}
