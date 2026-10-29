@@ -1,7 +1,12 @@
 {
   "date": "2026-10-29",
-  "topics": ["topic1", "topic7", "topic12"],
-  "profile": "pc_fast",
+  "topics": [
+    "topic26",
+    "topic27",
+    "topic28",
+    "topic29"
+  ],
+  "profile": "mobile_normal",
   "wordsPerTopic": 2,
   "autoStart": true
 }
