@@ -1,13 +1,12 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "topics": [
-    "topic1",
-    "topic2",
-    "topic3",
-    "topic4"
+    "topic10",
+    "topic32",
+    "topic33",
+    "topic34"
   ],
   "profile": "mobile_normal",
   "wordsPerTopic": 2,
-  "autoStart": true,
-  "latestVersion": "10.0.11"
+  "autoStart": true
 }
