@@ -9,5 +9,6 @@
   ],
   "profile": "mobile_normal",
   "wordsPerTopic": 2,
-  "autoStart": true
+  "autoStart": true,
+  "latestVersion": "10.0.8"
 }
