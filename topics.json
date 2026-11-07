@@ -1,6 +1,6 @@
 {
  "version": 3,
- "updated": "2026-11-06",
+ "updated": "2026-11-07",
  "topics": {
   "topic1": {
    "name": "Used Car",
@@ -466,7 +466,6 @@
     "Friday the 13th",
     "Dying Light",
     "Left 4 Dead",
-    "Terraria",
     "Minecraft Dungeons",
     "Hades 2",
     "Baldur's Gate 3",
@@ -1025,11 +1024,7 @@
     "flight to Poland",
     "flight to Croatia",
     "flight to Hungary",
-    "flight to Austria",
-    "flight to Norway",
-    "flight to Sweden",
-    "flight to Denmark",
-    "flight to Finland"
+    "flight to Austria"
    ]
   },
   "topic18": {
@@ -1500,16 +1495,11 @@
     "lemon recipe",
     "herb recipe",
     "spice recipe",
-    "sauce recipe",
     "dressing recipe",
-    "marinade recipe",
     "rub recipe",
-    "glaze recipe",
     "topping recipe",
-    "filling recipe",
     "crust recipe",
     "shell recipe",
-    "frosting recipe",
     "icing recipe",
     "decorate recipe",
     "serve recipe",
@@ -1523,7 +1513,6 @@
     "dinner recipe",
     "comfort food recipe",
     "holiday recipe",
-    "easy recipe",
     "best recipe"
    ]
   },
@@ -1538,7 +1527,6 @@
     "bank account open",
     "credit card",
     "debit card option",
-    "bank account open",
     "atm near me",
     "branch locator",
     "mobile deposit",
@@ -1816,7 +1804,6 @@
     "lte coverage",
     "network speed test",
     "data usage",
-    "unlimited data plan",
     "data only plan",
     "talk and text only",
     "pay as you go",
@@ -1919,7 +1906,6 @@
     "cruise to new zealand",
     "cruise to fiji",
     "cruise to tahiti",
-    "cruise to hawaii",
     "world cruise",
     "transatlantic cruise",
     "transpacific cruise",
@@ -2169,9 +2155,6 @@
     "credit card secured",
     "credit card prepaid",
     "credit card travel insurance",
-    "credit card purchase protection",
-    "credit card extended warranty",
-    "credit card price protection",
     "credit card cell phone protection",
     "credit card rental car coverage",
     "credit card baggage insurance",
@@ -2458,7 +2441,6 @@
     "TSLA stock price",
     "Tesla stock price",
     "META stock price",
-    "Meta stock price",
     "NFLX stock price",
     "Netflix stock price",
     "NVDA stock price",
@@ -2476,13 +2458,10 @@
     "HPQ stock price",
     "HP stock price",
     "DELL stock price",
-    "Dell stock price",
     "SONY stock price",
-    "Sony stock price",
     "SAP stock price",
     "SAP stock price (natural)",
     "SIEMENS stock price",
-    "Siemens stock price",
     "ASML stock price",
     "ASML stock price (natural)",
     "NVO stock price",
@@ -2716,6 +2695,12 @@
     "reproductive health",
     "hormonal balance",
     "immune system support"
+   ]
+  },
+  "topic36": {
+   "name": "New topic",
+   "words": [
+    "Test"
    ]
   }
  }
