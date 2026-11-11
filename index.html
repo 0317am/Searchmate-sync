@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SearchMate V3 Config</title>
+<title>SearchMate V4 Config</title>
 <style>
 :root{--bg:#15171a;--panel:#1f2226;--panel2:#272b30;--bd:rgba(255,255,255,.10);--ac:#4ee08a;--tx:#eceef0;--mut:#8f949b;--err:#ff6b63;--warn:#ffb443}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -36,6 +36,7 @@ textarea{resize:vertical;min-height:170px}
 .set:last-child{border-bottom:0}.set span.l{color:var(--tx)}.set span.s{display:block;color:var(--mut);font-size:12px}
 .seg{display:flex;background:#101214;border-radius:9px;padding:3px;border:1px solid var(--bd)}
 .seg div{padding:7px 16px;border-radius:7px;color:var(--mut);cursor:pointer;font-weight:600}.seg div.on{background:var(--ac);color:#06210f}
+.set.col{flex-direction:column;align-items:stretch}.seg.wide div{flex:1;text-align:center;padding:9px 0}.seg.off{opacity:.4}
 .sw{width:50px;height:30px;border-radius:999px;background:#3a3e44;position:relative;cursor:pointer;flex:none}
 .sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.15s}
 .sw.on{background:var(--ac)}.sw.on::after{left:23px}
@@ -55,7 +56,7 @@ label.f{display:block;color:var(--mut);font-size:12px;margin:12px 2px 6px}
 #gst{font-size:12px;color:var(--mut)}
 </style></head><body>
 <div class="wrap">
-<header><h1>SearchMate<small>V3</small></h1><div id="gst"><span class="dot" id="gdot"></span><span id="gtxt">not connected</span></div></header>
+<header><h1>SearchMate<small>V4</small></h1><div id="gst"><span class="dot" id="gdot"></span><span id="gtxt">not connected</span></div></header>
 <nav class="tabs"><button data-t="today" class="on">Today</button><button data-t="topics">Topics</button><button data-t="setup">Setup</button></nav>
 
 <!-- ============ TODAY ============ -->
@@ -74,7 +75,8 @@ label.f{display:block;color:var(--mut);font-size:12px;margin:12px 2px 6px}
   <h2>Options</h2>
   <div class="card">
     <div class="set"><span class="l">Words per topic</span><div class="seg" id="wseg"><div data-v="1">1</div><div data-v="2">2</div></div></div>
-    <div class="set"><span class="l">Auto-start<span class="s">first cycle of the day only</span></span><div class="sw" id="asw"></div></div>
+    <div class="set"><span class="l">Auto-start<span class="s">starts by itself after a 5 s countdown you can cancel</span></span><div class="sw" id="asw"></div></div>
+    <div class="set col"><span class="l">Auto-start runs for<span class="s" id="csub"></span></span><div class="seg wide" id="cseg"><div data-v="1">1</div><div data-v="2">2</div><div data-v="3">3</div><div data-v="4">4</div><div data-v="5">5</div><div data-v="0">Always</div></div></div>
     <div class="set"><span class="l">Date<span class="s">auto-start runs only if this is today</span></span><input type="date" id="date"></div>
   </div>
 </section>
@@ -104,8 +106,8 @@ label.f{display:block;color:var(--mut);font-size:12px;margin:12px 2px 6px}
   </div>
   <h2>Script update notice</h2>
   <div class="card">
-    <div class="note" style="margin-top:0">After you upload a new script to the Gist, type its version here (e.g. 3.0.1). Browsers on an older version show an "update available" banner. Leave empty for none.</div>
-    <input type="text" id="lv" placeholder="e.g. 3.0.1" inputmode="decimal" autocomplete="off">
+    <div class="note" style="margin-top:0">After you upload a new script to the Gist, type its version here (e.g. 4.0.1). Browsers on an older version show an "update available" banner. Leave empty for none.</div>
+    <input type="text" id="lv" placeholder="e.g. 4.0.1" inputmode="decimal" autocomplete="off">
   </div>
   <div class="btns" style="grid-template-columns:1fr"><button class="sec" id="load">Reload everything from GitHub</button></div>
 </section>
@@ -117,7 +119,7 @@ label.f{display:block;color:var(--mut);font-size:12px;margin:12px 2px 6px}
 const PROFILES={pc_normal:['PC Normal','9-13 sec'],pc_fast:['PC Fast','8-12 sec'],pc_ultra:['PC Ultra','7-11 sec'],mobile_normal:['Mobile','6-10 sec']};
 const MAX=5,$=id=>document.getElementById(id);
 let TOPICS=[{"id": "topic1", "name": "Used Car"}, {"id": "topic2", "name": "Coupon Code And Discount"}, {"id": "topic3", "name": "Upgrade Your Space"}, {"id": "topic4", "name": "Stream Your Favourite"}, {"id": "topic5", "name": "Send A Smile"}, {"id": "topic6", "name": "Discover Open Job Role"}, {"id": "topic7", "name": "Too Tired To Cook(Restaurant Near)"}, {"id": "topic8", "name": "Explore Video Games"}, {"id": "topic9", "name": "Know Your Credit Score"}, {"id": "topic10", "name": "Sleep Better(Mattresses)"}, {"id": "topic11", "name": "Treat Your Pet"}, {"id": "topic12", "name": "Weather"}, {"id": "topic13", "name": "Who Win(game Score)"}, {"id": "topic14", "name": "Find Place To Stay(Hotel)"}, {"id": "topic15", "name": "Jwellery"}, {"id": "topic16", "name": "Real estate"}, {"id": "topic17", "name": "Take of Soon(Flight)"}, {"id": "topic18", "name": "Protect what matters(Insurance)"}, {"id": "topic19", "name": "Plan Your Future"}, {"id": "topic20", "name": "Find deal"}, {"id": "topic21", "name": "park with ease"}, {"id": "topic22", "name": "Feeling symptoms"}, {"id": "topic23", "name": "Learn new recipe"}, {"id": "topic24", "name": "Bank smarter"}, {"id": "topic25", "name": "catch the show"}, {"id": "topic26", "name": "Learn Song Lyrics"}, {"id": "topic27", "name": "Driver Your way(Car Rental)"}, {"id": "topic28", "name": "Talk,text,save"}, {"id": "topic29", "name": "Set sail"}, {"id": "topic30", "name": "Check Option"}, {"id": "topic31", "name": "Swipe Smart (Credit Card)"}, {"id": "topic32", "name": "what time"}, {"id": "topic33", "name": "vocabulary meaning search"}, {"id": "topic34", "name": "How's the Economy"}, {"id": "topic35", "name": "Healthy Living"}];
-let profile='mobile_normal',topics=[],wpt=2,auto=true,filter='';
+let profile='mobile_normal',topics=[],wpt=2,auto=true,cyc=1,filter='';
 const ls=k=>localStorage.getItem('sm_'+k)||'';
 ['owner','repo','token'].forEach(k=>{$(k).value=ls(k);$(k).oninput=()=>{localStorage.setItem('sm_'+k,$(k).value.trim());gstat()}});
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
@@ -153,6 +155,9 @@ function render(){
  if(document.activeElement!==$('tnum'))$('tnum').value=topics.map(id=>topicNum(id)).join(', ');
  document.querySelectorAll('#wseg div').forEach(d=>d.classList.toggle('on',+d.dataset.v===wpt));
  $('asw').classList.toggle('on',auto);
+ document.querySelectorAll('#cseg div').forEach(d=>d.classList.toggle('on',+d.dataset.v===cyc));
+ $('cseg').classList.toggle('off',!auto);
+ $('csub').textContent=!auto?'auto-start is switched off':cyc===0?'every cycle, all day (5 s cancel countdown each time)':cyc===1?'only the first cycle of the day':'the first '+cyc+' cycles of the day';
 }
 $('tnum').oninput=()=>{const ids=[];$('tnum').value.split(/[\s,;.]+/).forEach(p=>{const n=parseInt(p.trim(),10);if(!isNaN(n)){const id='topic'+n;if(TOPICS.some(t=>t.id===id)&&!ids.includes(id))ids.push(id)}});
  if(ids.length>MAX)say('Max '+MAX+' topics','wn');topics=ids.slice(0,MAX);render()};
@@ -160,6 +165,7 @@ $('tnum').onblur=()=>{$('tnum').value=topics.map(id=>topicNum(id)).join(', ')}; 
 $('tsearch').oninput=()=>{filter=$('tsearch').value;render()};
 document.querySelectorAll('#wseg div').forEach(d=>d.onclick=()=>{wpt=+d.dataset.v;render()});
 $('asw').onclick=()=>{auto=!auto;render()};
+document.querySelectorAll('#cseg div').forEach(d=>d.onclick=()=>{cyc=+d.dataset.v;render()});
 
 /* ---------- GitHub ---------- */
 function api(file){file=file||'config.json';const o=ls('owner'),r=ls('repo');if(!o||!r||!ls('token')){tab('setup');throw new Error('Fill in the GitHub connection first')}
@@ -170,14 +176,14 @@ async function getCur(file){file=file||'config.json';const a=api(file);const r=a
  return{sha:j.sha,data}}
 async function load(){try{say('Loading...');const{data}=await getCur();gstat();
  if(data){profile=PROFILES[data.profile]?data.profile:profile;topics=(data.topics||[]).filter(id=>TOPICS.some(t=>t.id===id)).slice(0,MAX);
-  wpt=data.wordsPerTopic===1?1:2;auto=data.autoStart!==false;$('lv').value=data.latestVersion||'';
+  wpt=data.wordsPerTopic===1?1:2;auto=data.autoStart!==false;cyc=(data.autoStartCycles===0||data.autoStartCycles==='always')?0:(Number.isInteger(data.autoStartCycles)&&data.autoStartCycles>=1?data.autoStartCycles:1);$('lv').value=data.latestVersion||'';
   say('Loaded current config'+(data.date?' (date '+data.date+')':''),'ok')}else say('No config yet - it will be created on Save','wn');
  render()}catch(e){say(e.message,'er');gstat(e.message,'er')}}
 async function save(){try{
  if(!topics.length)return say('Pick at least one topic','er');
- const lv=$('lv').value.trim();if(lv&&!/^\d+(\.\d+)*$/.test(lv)){tab('setup');return say('Version must look like 3.0.1','er')}
+ const lv=$('lv').value.trim();if(lv&&!/^\d+(\.\d+)*$/.test(lv)){tab('setup');return say('Version must look like 4.0.1','er')}
  say('Saving...');const a=api();const{sha}=await getCur();
- const cfg={date:$('date').value||today(),topics,profile,wordsPerTopic:wpt,autoStart:auto};if(lv)cfg.latestVersion=lv;
+ const cfg={date:$('date').value||today(),topics,profile,wordsPerTopic:wpt,autoStart:auto,autoStartCycles:cyc};if(lv)cfg.latestVersion=lv;
  const body={message:'Update SearchMate config '+cfg.date,content:btoa(unescape(encodeURIComponent(JSON.stringify(cfg,null,2)))),...(sha?{sha}:{})};
  const r=await fetch(a.url,{method:'PUT',headers:{...a.h,'Content-Type':'application/json'},body:JSON.stringify(body)});
  if(!r.ok)throw new Error('Save failed: GitHub '+r.status);
