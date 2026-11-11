@@ -9,5 +9,5 @@
   "profile": "mobile_normal",
   "wordsPerTopic": 2,
   "autoStart": true,
-  "autoStartCycles": 4
+  "autoStartCycles": 0
 }
