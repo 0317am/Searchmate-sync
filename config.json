@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "topics": [
     "topic24",
     "topic25",
@@ -8,5 +8,6 @@
   ],
   "profile": "mobile_normal",
   "wordsPerTopic": 2,
-  "autoStart": true
+  "autoStart": true,
+  "autoStartCycles": 0
 }
